@@ -32,7 +32,7 @@ Namespaces in Kubernetes provide a way to logically divide cluster resources. Th
 
 To create a namespace
 ```
-kubectl create ns test-ns
+kubectl create ns k8s-ns
 ```
 To list all the available namespaces
 ```
@@ -71,6 +71,7 @@ kubectl run nginx --image=nginx --dry-run=client -o yaml > pod.yaml
 ``` 
 
 ### Task 3: Create a pod using below yaml
+
 To check the version of the Object you are creating
 ```
 kubectl api-resources
@@ -137,11 +138,24 @@ kubectl exec -it <pod-name> -- /bin/bash
 ```
 exit
 ```
-Now edit a single container pod to create a multi-container pod and add one more container
+### Task 4: Create a pod in specific Namespace
 ```
-kubectl edit po <pod-name>
+kubectl run ng-pod --image nginx --port 80 -n k8s-ns
 ```
-Enter into a particular container of multi-container pod
+Check the newly created Pod
 ```
-kubectl exec -it <pod-name> -c <container-name> -- /bin/bash
+kubectl get pod -n k8s-ns
+```
+
+### Task 5: Cleanup the resources using below command
+```
+kubectl delete pod pod-1
+```
+
+```
+kubectl delete -f httpd-pod.yaml
+```
+
+```
+kubectl delete pod ng-pod -n k8s-ns
 ```
