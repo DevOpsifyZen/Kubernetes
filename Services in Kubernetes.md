@@ -103,10 +103,7 @@ Get EndPoint of the service
 ```
 kubectl get ep  
 ```
-Get External IPs of the machines in the cluster using below.
-```
-kubectl get nodes -o wide | awk '{print $7}'
-```
+Get External IPs of the machines in the cluster.
 SSH to one of the machines and rerun the command in the previous task
 ```
 ssh -t ubuntu@<Node_IP> curl <Cluster_IP>:<Service_Port>
