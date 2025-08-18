@@ -1,3 +1,36 @@
+
+In Kubernetes, a volume is a storage unit that a Pod can use. Unlike containers (which are temporary and get deleted when restarted), volumes let data persist across container restarts or be shared between multiple containers in the same Pod.
+
+## 🔹 Types of Kubernetes Volumes
+
+### EmptyDir
+
+Created when a Pod starts, deleted when the Pod stops.
+
+Useful for temporary scratch space or caching.
+
+Example:
+
+volumes:
+- name: cache-volume
+  emptyDir: {}
+
+
+### HostPath
+
+Mounts a file or directory from the Node’s filesystem into the Pod.
+
+Good for testing, but risky in production since it ties Pod to a node.
+
+Example:
+
+volumes:
+- name: host-volume
+  hostPath:
+    path: /data
+
+
+--------------------------------------------------------------------------------------------------------------------------
 ## Task 1: Creating Deployment with hostPath
 Create a file named mydep-hp.yaml using the content given below
 ```
