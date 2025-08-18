@@ -3,7 +3,6 @@
 By default, Kubernetes storage (like emptyDir or hostPath) is temporary:
 
 * If a Pod crashes or restarts, the data is lost.
-
 * If a Pod is rescheduled to another node, local storage does not move with it.
 
 To solve this, Kubernetes provides:
