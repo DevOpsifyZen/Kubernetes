@@ -1,3 +1,34 @@
+## 🔹 Why do we need PV and PVC?
+
+By default, Kubernetes storage (like emptyDir or hostPath) is temporary:
+
+* If a Pod crashes or restarts, the data is lost.
+
+* If a Pod is rescheduled to another node, local storage does not move with it.
+
+To solve this, Kubernetes provides:
+
+**PersistentVolume (PV):**
+
+* A piece of storage in the cluster (like a disk, NFS share, cloud volume).
+* Created and managed by cluster administrators.
+* Defines size, access mode, and backend type (e.g., NFS, AWS EBS, Azure Disk, hostPath).
+
+
+
+**PersistentVolumeClaim (PVC):**
+
+* A request for storage by a deployment/Pod.
+* Kubernetes automatically matches a PVC to a suitable PV.
+* This way, users don’t need to worry about where or how the storage is provided.
+
+**Access Modes:**
+
+* ReadWriteOnce (RWO): One Pod can read/write.
+* ReadOnlyMany (ROX): Many Pods can read.
+* ReadWriteMany (RWX): Many Pods can read/write.
+
+----------------------------------------------------------------------------------------------------------------------------------------
 ## Static Provisioning
 
 ### Task 1: Get Node Label and Create Custom Index.html on Node
