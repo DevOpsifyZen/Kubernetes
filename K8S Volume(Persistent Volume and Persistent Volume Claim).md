@@ -3,13 +3,16 @@
 ### Task 1: Get Node Label and Create Custom Index.html on Node
 View worker nodes and their labels
 ```
-kubectl get nodes --show-labels | grep role=node
+kubectl get nodes --show-labels | grep "kubernetes.io/hostname"
 ```
-Make a note of the kubernetes.io/hostname label of one of the nodes and ssh to one of the nodes using below command
+Make a note of the `kubernetes.io/hostname` label of one of the nodes (i.e *kworker1*) and ssh to the nodes using below command
 ```
-ssh -t ubuntu@<node_public_IP> 
+ssh <UserName>@<Node-IP>
 ```
-Switch to root and run the following commands. A directory with custom index.html is created for PersistentVolume mount 
+i.e ssh labuser@172.31.29.170
+
+
+Switch to root and run the following commands. A directory with custom *index.html* is created for PersistentVolume mount 
 ```
 sudo su
 ```
@@ -19,7 +22,7 @@ mkdir /pvdir
 ```
 echo Hello World! > /pvdir/index.html
 ```
-### On the Jump Server (kops vm)
+### On the Master Node (kmaster vm)
 ### Task 2: Create a Local Persistent Volume
 ```
 vi pv-volume.yaml
@@ -93,7 +96,7 @@ spec:
           - mountPath: "/usr/share/nginx/html"
             name: pv-storage
   nodeSelector:
-    kubernetes.io/hostname: ip-172-20-33-138.ap-south-1.compute.internal
+    kubernetes.io/hostname: kworker1
 ```
 Apply the Pod yaml created in the previous step
 ```
