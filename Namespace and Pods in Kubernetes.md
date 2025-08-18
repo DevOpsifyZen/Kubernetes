@@ -131,7 +131,9 @@ To add a label when creating a prod
 ```
 kubectl run <pod-name> --image nginx --labels <any-label>
 ```
-* Note:- abels should be written in `key=value` pairs
+* Note:- Labels should be written in `key=value` pairs
+
+  
 Enter inside a single container pod
 ```
 kubectl exec -it <pod-name> -- /bin/bash
