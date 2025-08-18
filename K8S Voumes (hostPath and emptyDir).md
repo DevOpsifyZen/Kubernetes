@@ -13,9 +13,8 @@ Unlike containers (which are temporary and get deleted when restarted), **volume
 - Useful for temporary scratch space or caching.  
 
 **Example (YAML):**
-    volumes:
-      - name: cache-volume
-        emptyDir: {}
+   <img width="199" height="78" alt="image" src="https://github.com/user-attachments/assets/ddb1d632-7e22-45ee-b992-0ba6bae874e6" />
+
 
 ---
 
@@ -24,10 +23,7 @@ Unlike containers (which are temporary and get deleted when restarted), **volume
 - Good for testing, but risky in production since it ties Pod to a node.  
 
 **Example (YAML):**
-    volumes:
-      - name: host-volume
-        hostPath:
-          path: /data
+   <img width="203" height="94" alt="image" src="https://github.com/user-attachments/assets/c9d434ea-01a6-4a15-b4b5-9f2edc9f0583" />
 
 
 --------------------------------------------------------------------------------------------------------------------------
