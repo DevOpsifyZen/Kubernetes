@@ -1,4 +1,4 @@
-## 🔹 Why do we need PV and PVC?
+**🔹 Why do we need PV and PVC?**
 
 By default, Kubernetes storage (like emptyDir or hostPath) is temporary:
 
