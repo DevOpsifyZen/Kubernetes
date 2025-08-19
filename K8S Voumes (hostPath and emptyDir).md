@@ -31,7 +31,7 @@ Unlike containers (which are temporary and get deleted when restarted), **volume
 
 
 --------------------------------------------------------------------------------------------------------------------------
-## Task 1: Creating Deployment with hostPath
+## Task 1: Creating POD with hostPath
 Create a file named mydep-hp.yaml using the content given below
 ```
 vi mypod-hp.yaml
