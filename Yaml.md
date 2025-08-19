@@ -1,6 +1,9 @@
 vi httpd-pod.yaml 
+
 kubectl apply -f httpd-pod.yaml 
+
 vi httpd-pod.yaml 
+
 ```yaml
 apiVersion: v1
 kind: Pod
@@ -27,5 +30,7 @@ spec:
 ```
 
 kubectl apply -f httpd-pod.yaml 
+
 kubectl exec -it httpd-pod-1 -- bash
+
 exit
