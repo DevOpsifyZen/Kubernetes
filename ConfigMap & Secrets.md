@@ -1,5 +1,21 @@
 ## ConfigMap & Secrets
+**🔹 ConfigMap**
+* A way to store *non-sensitive* configuration data in Kubernetes.
+* Keeps config separate from container images → you don’t need to rebuild your app image if config changes.
+* How apps use it:
+    * As environment variables inside Pods.
+    * As configuration files mounted into a container.
+* *Example:* Database hostname, log level, feature flags.
 
+**🔹 Secret**
+* A way to store *sensitive/confidential* data in Kubernetes.
+* Provides security for credentials, so you don’t hardcode them in Pods or ConfigMaps.
+* Base64 encoded (⚠️ not strong encryption, so protect your cluster).
+* How apps use it:
+    * As environment variables (like DB_PASSWORD).
+    * As files mounted in containers (like SSL/TLS certificates).
+* *Example:* Database password, GitHub token, SSH key.
+--------------------------------------------------------------------------------------------
 ### Task 1: Directly inject variables - Traditional Method
 ```
 vi env.yaml
@@ -24,6 +40,9 @@ spec:
     - name: db_pwd
       value: "1234"
 ```
+save the file using `ESCAPE + :wq!`
+
+Apply the yaml
 ```
 kubectl apply -f env.yaml
 ```
@@ -77,6 +96,9 @@ spec:
     - configMapRef:
         name: cm-1
 ```
+save the file using `ESCAPE + :wq!`
+
+Apply the yaml
 ```
 kubectl apply -f env.yaml
 ```
@@ -133,6 +155,9 @@ spec:
           name: cm-1
           key: db_pwd
 ```
+save the file using `ESCAPE + :wq!`
+
+Apply the yaml
 ```
 kubectl replace -f env.yaml --force
 ```
@@ -195,6 +220,9 @@ spec:
     - configMapRef:
         name: cm-1
 ```
+save the file using `ESCAPE + :wq!`
+
+Apply the yaml
 ```
 kubectl apply -f env.yaml
 ```
@@ -258,6 +286,9 @@ spec:
     - containerPort: 80
 
 ```
+save the file using `ESCAPE + :wq!`
+
+Apply the yaml
 ```
 kubectl replace -f env.yaml --force
 ```
@@ -315,6 +346,9 @@ data:
   ##password is mypwd
   password: bXlwd2QK
 ```
+save the file using `ESCAPE + :wq!`
+
+Apply the yaml
 ```
 kubectl apply -f secret.yaml
 ```
@@ -350,6 +384,7 @@ spec:
 ```
 save the file using `ESCAPE + :wq!`
 
+Apply the yaml
 ```
 kubectl apply -f sc-pod.yaml
 ```
@@ -377,3 +412,8 @@ echo $password
 ```
 env 
 ```
+### Task 7 : CleanUp resources
+```
+kubectl delete pod --all
+```
+⚠️ Will delete ***all running Pods** in the current namespace.
