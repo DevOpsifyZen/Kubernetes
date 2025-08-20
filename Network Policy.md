@@ -27,7 +27,7 @@ kubectl create ns devops
 ```
 kubectl create ns finance
 ```
-Now label the devops namespace and verify it
+Now label the namespace and verify it
 ```
 kubectl label ns finance project=myproject
 ```
