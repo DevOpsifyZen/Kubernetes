@@ -218,7 +218,7 @@ spec:
     - containerPort: 80
     envFrom:
     - configMapRef:
-        name: cm-1
+        name: file-cm
 ```
 save the file using `ESCAPE + :wq!`
 
