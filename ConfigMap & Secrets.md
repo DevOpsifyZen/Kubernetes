@@ -275,7 +275,7 @@ spec:
   volumes:
   - name: cm-volume
     configMap:
-      name: cm-1
+      name: file-cm
   containers:
   - image: httpd
     name: ctr-1
