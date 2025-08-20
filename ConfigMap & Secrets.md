@@ -85,7 +85,7 @@ kind: Pod
 metadata:
   labels:
     app: web
-  name: web-pod
+  name: web-pod-1
 spec:
   containers:
   - image: httpd
@@ -141,7 +141,7 @@ kind: Pod
 metadata:
   labels:
     app: web
-  name: web-pod
+  name: web-pod-2
 spec:
   containers:
   - image: httpd
@@ -159,7 +159,7 @@ save the file using `ESCAPE + :wq!`
 
 Apply the yaml
 ```
-kubectl replace -f env2.yaml --force
+kubectl apply -f env2.yaml
 ```
 ```
 kubectl describe pod web-pod
@@ -209,7 +209,7 @@ kind: Pod
 metadata:
   labels:
     app: web
-  name: web-pod
+  name: web-pod-3
 spec:
   containers:
   - image: httpd
@@ -270,7 +270,7 @@ kind: Pod
 metadata:
   labels:
     app: web
-  name: web-pod
+  name: web-pod-4
 spec:
   volumes:
   - name: cm-volume
@@ -290,7 +290,7 @@ save the file using `ESCAPE + :wq!`
 
 Apply the yaml
 ```
-kubectl replace -f env4.yaml --force
+kubectl apply -f env4.yaml
 ```
 ```
 kubectl describe pod web-pod
