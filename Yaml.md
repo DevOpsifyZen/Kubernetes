@@ -70,4 +70,29 @@ spec:
       capabilities:
         add: ["NET_ADMIN", "SYS_TIME", "SYS_ADMIN"]
 ```
+-------------------------------------------------------------------------------------------------------
 
+```yaml
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  namespace: devops
+  name: backend-policy
+spec:
+  podSelector:
+    matchLabels:
+      run: ng-pod
+  ingress: 
+  - from:
+    - namespaceSelector:
+        matchLabels:
+          project: myproject
+      podSelector:
+        matchLabels:
+         role: frontend
+```
+
+
+kubectl -n finance run pod4 --image centos:7 --labels role=frontend -- sleep 5000
+kubectl -n finance get pod --show-labels
+kubectl -n finance exec -it pod4 -- bash
