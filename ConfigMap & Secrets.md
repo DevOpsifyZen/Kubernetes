@@ -76,7 +76,7 @@ kubectl describe cm cm-1
 ```
 Inject the ConfigMap into the Pod Yaml File
 ```
-vi env.yaml
+vi env1.yaml
 ```
 Add the given content, by pressing `INSERT`
 ```yaml
@@ -100,7 +100,7 @@ save the file using `ESCAPE + :wq!`
 
 Apply the yaml
 ```
-kubectl apply -f env.yaml
+kubectl apply -f env1.yaml
 ```
 ```
 kubectl describe pod web-pod
@@ -132,7 +132,7 @@ kubectl describe cm cm-1
 ```
 Inject particular variable from the ConfigMap into the Pod Yaml File
 ```
-vi env.yaml
+vi env2.yaml
 ```
 Add the given content, by pressing `INSERT`
 ```yaml
@@ -159,7 +159,7 @@ save the file using `ESCAPE + :wq!`
 
 Apply the yaml
 ```
-kubectl replace -f env.yaml --force
+kubectl replace -f env2.yaml --force
 ```
 ```
 kubectl describe pod web-pod
@@ -200,7 +200,7 @@ kubectl describe cm cm-1
 ```
 Inject particular variable from the ConfigMap into the Pod Yaml File
 ```
-vi env.yaml
+vi env3.yaml
 ```
 Add the given content, by pressing `INSERT`
 ```yaml
@@ -224,7 +224,7 @@ save the file using `ESCAPE + :wq!`
 
 Apply the yaml
 ```
-kubectl apply -f env.yaml
+kubectl apply -f env3.yaml
 ```
 ```
 kubectl describe pod web-pod
@@ -261,7 +261,7 @@ kubectl describe cm cm-1
 ```
 Inject as volume mount
 ```
-vi env.yaml
+vi env4.yaml
 ```
 Add the given content, by pressing `INSERT`
 ```yaml
@@ -290,7 +290,7 @@ save the file using `ESCAPE + :wq!`
 
 Apply the yaml
 ```
-kubectl replace -f env.yaml --force
+kubectl replace -f env4.yaml --force
 ```
 ```
 kubectl describe pod web-pod
