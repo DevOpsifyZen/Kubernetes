@@ -34,3 +34,40 @@ kubectl apply -f httpd-pod.yaml
 kubectl exec -it httpd-pod-1 -- bash
 
 exit
+
+--------------------------------------------------------
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: security-context-new
+spec:
+  securityContext:
+    fsGroup: 2000     # common group of files
+  volumes:
+  - name: sec-ctx-vol
+    emptyDir: {}
+  containers:
+  - name: ctr-1
+    image: busybox:1.28
+    command: [ "sh", "-c", "sleep 1h" ]
+    volumeMounts:
+    - name: sec-ctx-vol
+      mountPath: /data/demo
+    securityContext:
+      runAsUser: 1010   #UID
+      runAsGroup: 3010  #GID
+  - name: ctr-2
+    image: busybox:1.28
+    command: [ "sh", "-c", "sleep 1h" ]
+    volumeMounts:
+    - name: sec-ctx-vol
+      mountPath: /docs/demo
+    securityContext:
+      runAsUser: 1020   #UID
+      runAsGroup: 3020  #GID
+      capabilities:
+        add: ["NET_ADMIN", "SYS_TIME", "SYS_ADMIN"]
+```
+
