@@ -107,7 +107,7 @@ kubectl describe pod web-pod
 ```
 Enter the pod and check if the variable has been passed correctly or not
 ```
-kubectl exec -it web-pod -- sh
+kubectl exec -it web-pod-1 -- sh
 ```
 ```
 echo $db_user
@@ -166,7 +166,7 @@ kubectl describe pod web-pod
 ```
 Enter the pod and check if the variable has been passed correctly or not
 ```
-kubectl exec -it web-pod -- sh
+kubectl exec -it web-pod-2 -- sh
 ```
 ```
 echo $db_user
@@ -231,7 +231,7 @@ kubectl describe pod web-pod
 ```
 Enter the pod and check if the variable has been passed correctly or not
 ```
-kubectl exec -it web-pod -- sh
+kubectl exec -it web-pod-3 -- bash
 ```
 ```
 echo $token
@@ -251,13 +251,13 @@ This is CKAD Training. We are practicing Injecting variables from ConfigMaps(Fro
 ```
 Create a ConfigMap
 ```
-kubectl create cm cm-1 --from-file=token        
+kubectl create cm file-cm --from-file=token        
 ```
 ```
 kubectl get cm
 ```
 ```
-kubectl describe cm cm-1
+kubectl describe cm file-cm
 ```
 Inject as volume mount
 ```
@@ -297,7 +297,7 @@ kubectl describe pod web-pod
 ```
 Enter the pod and check if the variable has been passed correctly or not
 ```
-kubectl exec -it web-pod -- sh
+kubectl exec -it web-pod-4 -- sh
 ```
 ```
 cd /app
