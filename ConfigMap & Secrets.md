@@ -190,13 +190,13 @@ This is CKAD Training. We are practicing Injecting variables from ConfigMaps(Fro
 ```
 Create a ConfigMap
 ```
-kubectl create cm cm-1 --from-file=token         #--from-file=<filen-name>. This file name acts as the key
+kubectl create cm file-cm --from-file=token         #--from-file=<filen-name>. This file name acts as the key
 ```
 ```
 kubectl get cm
 ```
 ```
-kubectl describe cm cm-1
+kubectl describe cm file-cm
 ```
 Inject particular variable from the ConfigMap into the Pod Yaml File
 ```
