@@ -213,7 +213,7 @@ kubectl -n devops run ng-pod --image=nginx --port=80
 ```
 Create a role  named "test-user-role" that grants permissions to list, create, and delete pods and services within the devops namespace
 ```
-kubectl -n devops create role dev-role --verb=list,create,delete --resource=pods,services
+kubectl -n devops create role dev-role --verb=list,get,create,delete --resource=pods,services
 ```
 Now create a role binding that associates the role with the test-user
 ```
