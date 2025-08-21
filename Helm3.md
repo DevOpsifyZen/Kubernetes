@@ -92,7 +92,7 @@ kubectl get svc
 ```
 Open the browser and paste the Public Ip of the Node along with service nodePort noted on the previous step. Observe that the WordPress site is up and running
 > http://<Public-IP-of-the-Node>:<NodePort>
-> i.e.. http://3.85.9.5:32123
+> i.e.. http://13.8.90.52:30288
 
 #### Cleanup
 List the current helm release and delete it
