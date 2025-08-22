@@ -62,3 +62,19 @@ Check the worker nodes:
 kubectl get nodes
 ```
 ✅ You should see 2 nodes in Ready state.
+
+### Task 5: Delete Cluster
+```
+az aks delete  --name <cluster-name> --resource-group <resource-group-name>
+```
+🔻 This command deletes:
+•	The control plane of the AKS cluster
+•	Associated Azure resources (e.g., load balancers, NSGs, disks)
+•	AKS-generated node resource group (if managed by AKS)
+📝 The --yes flag skips the confirmation prompt.
+
+Run the following command to delete resource group
+```
+az group delete --name <resource-group-name> --yes --no-wait
+```
+⚠️ This will delete all resources inside <resource-group>, not just AKS.
