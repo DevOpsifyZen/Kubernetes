@@ -1,21 +1,16 @@
-Lab 1: Deploying a Kubernetes Cluster with Azure Kubernetes Service (AKS)
 
-This lab demonstrates how to set up a two-node AKS cluster on Microsoft Azure.
+## Deploying a Kubernetes Cluster with Azure Kubernetes Service (AKS)
 
-🎯 Objectives
+**🎯 Objectives:**
+* Create a resource group in Azure.
+* Deploy an AKS cluster with 2 worker nodes.
+* Connect to the cluster and verify node status.
 
-Create a resource group in Azure.
 
-Deploy an AKS cluster with 2 worker nodes.
-
-Connect to the cluster and verify node status.
-
-Task 1: Create a Resource Group
-Open Azure Cloud Shell
-
-Click the Cloud Shell icon (🖥️ >_) in the top-right corner.
-
-Choose Bash if prompted.
+### Task 1: Create a Resource Group
+* Open Azure Cloud Shell
+* Click the Cloud Shell icon (🖥️ >_) in the top-right corner.
+* Choose Bash if prompted.
 
 Run the following command:
 ```
@@ -32,13 +27,10 @@ Verify the resource group was created:
 ```
 az group list -o table
 ```
-
 ✅ You should see your new resource group in the list.
 
 
-
-Task 2: Deploy the AKS Cluster
-
+### Task 2: Deploy the AKS Cluster
 
 Set environment variables:
 ```
@@ -46,15 +38,13 @@ RESOURCE_GROUP="K8S-RG"
 CLUSTER_NAME="aks-cluster"
 LOCATION="centralus"
 ```
-
 Create the cluster with 2 worker nodes:
 ```
 az aks create  --resource-group $RESOURCE_GROUP  --name $CLUSTER_NAME --node-count 2 --node-vm-size Standard_DS2_v2 --generate-ssh-keys
 ```
-
 ✅ This may take several minutes. Once completed, you’ll see details such as cluster FQDN, node pool info, and kubeConfig.
 
-Task 3: Connect to the Cluster
+#### Task 3: Connect to the Cluster
 
 List all clusters in your subscription:
 ```
@@ -65,7 +55,7 @@ Get cluster credentials (merge into your local kubeconfig):
 ```
 az aks get-credentials -n $CLUSTER_NAME -g $RESOURCE_GROUP
 ```
-Task 4: Verify the Cluster
+### Task 4: Verify the Cluster
 
 Check the worker nodes:
 ```
